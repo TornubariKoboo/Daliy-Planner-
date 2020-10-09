@@ -32,3 +32,51 @@ textarea{
   text-align: center;
   border-radius: 15px;
 }
+
+
+.row {
+  white-space: pre-wrap;
+  height: 80px;
+  border-top: 1px solid white;;
+  margin-bottom: 1.25rem;
+}
+
+.hour {
+  background-color: #ffffff;
+  color: #000000;
+  border-top: 1px dashed #000000;
+}
+
+/* .past {
+  background-color: #d3d3d3;
+} */
+
+.present {
+  background-color: #ff6961;
+}
+
+.future {
+  background-color: #77dd77;
+}
+
+.save-button {
+  border-left: 1px solid black;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background-color: #06AED5;
+  color: white;
+  display: block;
+  text-align: center;
+}
+
+.save-button:hover {
+  background-color: #03576b;
+}
+
+.disabled {
+  color: black;
+  background-color: #f0f0f0;
+  border-color: #787878;
+  cursor: not-allowed;
+  pointer-events: none;
+}
