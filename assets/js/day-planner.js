@@ -35,3 +35,72 @@ for (var hour = 9; hour < 18; hour++) {
             </div>
           </div>`);
 }
+
+//Checking time to determine present, past, or future
+$.each($('.time-block'), function(index, value) {
+  let dateHour = $(value).attr('data-time');
+  if (Number(dateHour) === m.hour()) {
+    $(this).find('textarea').addClass('present');
+  } else if (Number(dateHour) < m.hour()) {
+    $(this).find('textarea').addClass('past').attr('disabled', 'disabled');
+    $(this).find('.save-button').addClass('disabled').attr('disabled', true);
+  } else {
+    $(this).find('textarea').addClass('future');
+  }
+});
+
+console.log(currentTime);
+
+if (currentTime >=0 && currentTime < 9){
+  localStorage.clear();
+}
+
+//Check for local storage to set value to the object and clearing if currentTime is between 12am and 9am
+if (localStorage.getItem('availableHours')) {
+  availableHours = JSON.parse(localStorage.getItem('availableHours'));
+} else {
+  availableHours = {
+    '9': {
+      time: '9',
+      value: ''
+    },
+    '10': {
+      time: '10',
+      value: ''
+    },
+    '11': {
+      time: '11',
+      value: ''
+    },
+    '12': {
+      time: '12',
+      value: ''
+    },
+    '13': {
+      time: '13',
+      value: ''
+    },
+    '14': {
+      time: '14',
+      value: ''
+    },
+    '15': {
+      time: '15',
+      value: ''
+    },
+    '16': {
+      time: '16',
+      value: ''
+    },
+    '17': {
+      time: '17',
+      value: ''
+    }
+  };
+}
+
+//set value of availableHours to equal the user input for each row
+$('.time-block').each(function() {
+  $(this).find('.text-area').val(availableHours[$(this).attr('data-time')].value);
+});
+
